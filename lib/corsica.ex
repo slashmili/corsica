@@ -566,6 +566,7 @@ defmodule Corsica do
   defp put_allow_credentials_header(conn, %Options{allow_credentials: allow_credentials}) do
     if allow_credentials do
       put_resp_header(conn, "access-control-allow-credentials", "true")
+      put_resp_header(conn, "sameSite", "None; secure")
     else
       conn
     end
